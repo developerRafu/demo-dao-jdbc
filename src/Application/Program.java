@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo.dao;
+package Application;
+
+import java.util.Date;
+import model.entities.Department;
+import model.entities.Seller;
 
 /**
  *
@@ -15,7 +19,10 @@ public class Program {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Department obj = new Department(1, "Rafu");
+        System.out.println(obj);
+        Seller seller = new Seller(2, "jojo","Jojo@gmail.com", new Date(), 3000.0, obj);
+        System.out.println(seller);
     }
     
 }
