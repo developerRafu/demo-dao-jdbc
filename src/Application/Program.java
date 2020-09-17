@@ -7,6 +7,7 @@ package Application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.dao.impl.SellerDaoJDBC;
@@ -23,6 +24,7 @@ public class Program {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.CreateSellerDao();
         System.out.println("==== TEST 1: seller findById==== ");
         Seller seller = sellerDao.findById(3);
@@ -47,5 +49,12 @@ public class Program {
             seller.setName("Martha mãe do Batman");
             sellerDao.update(seller);
             System.out.println("Update completed");
+            System.out.println("==== TEST 6: seller delete=== ");
+            System.out.println("Enter id for delete test:");
+            int id = sc.nextInt();
+            sellerDao.deleteById(id);
+            System.out.println("Delete completed");
+            
+            sc.close();
     }
 }
